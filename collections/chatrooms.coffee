@@ -1,6 +1,6 @@
 @Chatrooms = new Meteor.Collection 'chatrooms'
 
-Meteor.methods addroom: (roominfo) ->
+Meteor.methods addRoom: (roomInfo) ->
   # user = Meteor.user()
 
   # # ensure the user is logged in
@@ -9,13 +9,12 @@ Meteor.methods addroom: (roominfo) ->
   # # ensure the post has a title
   # throw new Meteor.Error(422, "Please fill in room name")  unless roominfo.name
 
-  console.log("running addroom method")
   #pick out the whitelisted keys
-  roomattributes = _.extend(_.pick(roominfo, "name"),
+  roomAttributes = _.extend(_.pick(roomInfo, "name, description"),
     # userId: user._id
     # author: user.username
     created: new Date().getTime()
   )
 
-  add = Chatrooms.insert(roomattributes)
-  add
+  chatroomId = Chatrooms.insert(roomAttributes)
+  console.log(chatroomId)
