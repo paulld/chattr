@@ -1,1 +1,1 @@
-Chatrooms = new Meteor.Collection 'chatrooms'
+@Chatrooms = new Meteor.Collection 'chatrooms'

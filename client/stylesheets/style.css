@@ -191,3 +191,7 @@ footer > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.login-buttons-dropdown-align-right {
+  float: right;
+}
