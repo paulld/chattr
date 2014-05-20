@@ -4,7 +4,7 @@ Template.createChatroom.events "submit form": (e) ->
   roominfo =
     name: $(e.target).find('[name=room-name]').val()
 
-  Meteor.call 'chatrooms', roominfo, (error, id) ->
+  Meteor.call 'addroom', roominfo, (error) ->
   #enter name of room collection
     if error
       alert(error.reason)
