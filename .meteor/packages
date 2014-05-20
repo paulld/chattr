@@ -10,3 +10,5 @@ bootstrap
 coffeescript
 less
 iron-router
+accounts-ui
+accounts-github
