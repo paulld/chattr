@@ -10,7 +10,7 @@ Meteor.methods addRoom: (roomInfo) ->
   # throw new Meteor.Error(422, "Please fill in room name")  unless roominfo.name
 
   #pick out the whitelisted keys
-  roomAttributes = _.extend(_.pick(roomInfo, "name, description"),
+  roomAttributes = _.extend(_.pick(roomInfo, "name", "description"),
     # userId: user._id
     # author: user.username
     created: new Date().getTime()

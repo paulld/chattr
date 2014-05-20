@@ -3,3 +3,5 @@ Router.configure
 
 Router.map () ->
   @route 'home', path: '/'
+
+  @route 'mocha', path: '/tests'
