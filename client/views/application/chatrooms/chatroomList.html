@@ -1,0 +1,12 @@
+<template name="chatroomList">
+  <h2>Chatrooms</h2>
+  <ul>
+    {{#each chatrooms}}
+      <li>{{> chatroom}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="chatroom">
+  {{name}}
+</template>
