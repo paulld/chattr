@@ -1,7 +1,6 @@
 <template name="home">
   <p> This is the Chattr home page</p>
-  {{> createChatroom}}
-  <h2>Chatrooms</h2>
-  {{> chatroomList}}
+  <div class="col-md-8">{{> chatroomList}}</div>
+  <div class="col-md-4">{{> createChatroom}}</div>
 </template>
 
