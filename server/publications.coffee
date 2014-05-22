@@ -1,2 +1,2 @@
-Meteor.publish 'chatrooms', () ->
-  Chatrooms.find()
+# Meteor.publish 'chatrooms', () ->
+#   Chatrooms.find()
