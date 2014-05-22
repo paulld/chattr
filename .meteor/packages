@@ -4,9 +4,12 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 insecure
 bootstrap
 coffeescript
 less
 iron-router
+accounts-ui
+accounts-github
+service-configuration
+autopublish
