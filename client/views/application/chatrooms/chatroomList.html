@@ -1,16 +1,8 @@
-<template name="chatroomList">
+<template name="chatroomsList">
   <h2>Chatrooms</h2>
   <ul>
-    {{#each chatrooms}}
-      <li>{{> chatroom}}</li>
+    {{#each getChatrooms}}
+      <li>{{> chatroomItem}}</li>
     {{/each}}
   </ul>
-</template>
-
-<template name="chatroom">
-  <div class="row">
-    <div class="col-md-1">{{isEphemeral}}</div>
-    <div class="col-md-3">{{name}}</div>
-    <div class="col-md-4">{{chatroomDescription}}</div>
-  </div>
 </template>

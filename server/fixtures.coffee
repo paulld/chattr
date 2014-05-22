@@ -3,8 +3,8 @@ if Chatrooms.find().count() is 0
 
   for i in [1..6]
     Chatrooms.insert
-      name: 'Room' + i
-      createdBy: 'Carl Sagan'
+      chatroomName: "Room " + i
+      createdBy: "Douglas Adams"
       chatroomDescription: "room description"
       createdOn: now - i * 3600 * 1000
       isPrivate: true
