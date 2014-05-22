@@ -14,37 +14,47 @@ suite "Chatrooms", ->
 
 
 
-  test "create new chatroom function", (done, client, server) ->
+  test "create new chatroom function, correct input", (done, client, server) ->
     client["eval"](->
       roomInfo =
         name: "testName"
         description: "testDescription"
 
       Meteor.call "addRoom", roomInfo
-      collection = Chatrooms.find().fetch()
-      emit "collection", collection
+      addedNewChatroom = (post) ->
+        emit('post', post)
 
-    ).once "collection", (collection) ->
-      assert.equal collection.length, 1
+      Chatrooms.find().observe
+        added: addedNewChatroom
+
+    ).once "post", (post) ->
+      assert.equal post.name, "testName"
+      assert.equal post.description, "testDescription"
       done()
 
 
-    server.once "collection", (collection) ->
-      assert.equal Chatrooms.find().fetch().length, 1
+    server.once "post", (post) ->
+      assert.equal post.name, "testName"
+      assert.equal post.description, "testDescription"
       done()
 
   test ".insert for Chatrooms", (done, server)->
 
     server["eval"](->
       Chatrooms.insert {name: "testName", description: "testDescription"}
-      collection = Chatrooms.find().fetch()
-      find = Chatrooms.findOne({name: "testName"})
-      emit "collection", collection
+      addedNewChatroom = (post) ->
+        emit('post', post)
+
+      Chatrooms.find().observe
+        added: addedNewChatroom
 
 
-    ).once "collection", (collection) ->
-      assert.equal collection.length, 1
+
+    ).once 'post', (post) ->
+      assert.equal post.name, "testName"
+      assert.equal post.description, "testDescription"
       done()
+
 
 
 
