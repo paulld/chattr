@@ -1,7 +1,7 @@
 assert = undefined
 assert = require("assert")
 suite "Chatrooms", ->
-  test "room collection exists", (done, server) ->
+  test "chatroom collection exists", (done, server) ->
     server["eval"](->
       collection = undefined
       collection = Chatrooms.find().fetch()
@@ -14,7 +14,7 @@ suite "Chatrooms", ->
 
 
 
-  test "create new chatroom function, correct input", (done, client, server) ->
+  test "addRoom function creates chatroom with correct input", (done, client, server) ->
     client["eval"](->
       roomInfo =
         name: "testName"
