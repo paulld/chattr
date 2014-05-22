@@ -4,10 +4,14 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 insecure
 bootstrap
 coffeescript
 less
 iron-router
-mocha-web
+accounts-ui
+accounts-github
+service-configuration
+autopublish
+
+
