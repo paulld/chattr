@@ -1,0 +1,107 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'private:', 'true,' ]
+2 info using npm@1.4.10
+3 info using node@v0.10.28
+4 verbose node symlink /usr/local/bin/node
+5 verbose cache add [ 'private:', null ]
+6 verbose cache add name=undefined spec="private:" args=["private:",null]
+7 verbose parsed url { protocol: 'private:',
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: '',
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: '',
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: null,
+7 verbose parsed url   path: null,
+7 verbose parsed url   href: 'private:' }
+8 verbose cache add [ 'true,', null ]
+9 verbose cache add name=undefined spec="true," args=["true,",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'true,',
+10 verbose parsed url   path: 'true,',
+10 verbose parsed url   href: 'true,' }
+11 silly lockFile 1e5a773a-private private:
+12 verbose lock private: /Users/yimmy/.npm/1e5a773a-private.lock
+13 silly lockFile a0601c9f-true true,
+14 verbose lock true, /Users/yimmy/.npm/a0601c9f-true.lock
+15 silly lockFile 1e5a773a-private private:
+16 silly lockFile 1e5a773a-private private:
+17 silly lockFile a0601c9f-true true,
+18 silly lockFile a0601c9f-true true,
+19 verbose addNamed [ 'private:', '' ]
+20 verbose addNamed [ null, '*' ]
+21 silly lockFile a2d29f34-private private:@
+22 verbose lock private:@ /Users/yimmy/.npm/a2d29f34-private.lock
+23 verbose addNamed [ 'true,', '' ]
+24 verbose addNamed [ null, '*' ]
+25 silly lockFile 678daa88-true true,@
+26 verbose lock true,@ /Users/yimmy/.npm/678daa88-true.lock
+27 silly addNameRange { name: 'private:', range: '*', hasData: false }
+28 verbose url raw private:
+29 verbose url resolving [ 'https://registry.npmjs.org/', './private%3A' ]
+30 verbose url resolved https://registry.npmjs.org/private%3A
+31 info trying registry request attempt 1 at 10:34:25
+32 http GET https://registry.npmjs.org/private%3A
+33 silly addNameRange { name: 'true,', range: '*', hasData: false }
+34 verbose url raw true,
+35 verbose url resolving [ 'https://registry.npmjs.org/', './true%2C' ]
+36 verbose url resolved https://registry.npmjs.org/true%2C
+37 info trying registry request attempt 1 at 10:34:25
+38 http GET https://registry.npmjs.org/true%2C
+39 http 404 https://registry.npmjs.org/private%3A
+40 verbose headers { date: 'Thu, 22 May 2014 02:34:26 GMT',
+40 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+40 verbose headers   'content-type': 'application/json',
+40 verbose headers   via: '1.1 varnish',
+40 verbose headers   'cache-control': 'max-age=0',
+40 verbose headers   'content-length': '52',
+40 verbose headers   'accept-ranges': 'bytes',
+40 verbose headers   age: '0',
+40 verbose headers   'x-served-by': 'cache-v36-ASH, cache-hk92-HKG',
+40 verbose headers   'x-cache': 'MISS, MISS',
+40 verbose headers   'x-cache-hits': '0, 0',
+40 verbose headers   'x-timer': 'S1400726065.996388197,VS0,VS-468,VE-386,VE294',
+40 verbose headers   'keep-alive': 'timeout=10, max=50',
+40 verbose headers   connection: 'Keep-Alive' }
+41 silly registry.get cb [ 404,
+41 silly registry.get   { date: 'Thu, 22 May 2014 02:34:26 GMT',
+41 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+41 silly registry.get     'content-type': 'application/json',
+41 silly registry.get     via: '1.1 varnish',
+41 silly registry.get     'cache-control': 'max-age=0',
+41 silly registry.get     'content-length': '52',
+41 silly registry.get     'accept-ranges': 'bytes',
+41 silly registry.get     age: '0',
+41 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-hk92-HKG',
+41 silly registry.get     'x-cache': 'MISS, MISS',
+41 silly registry.get     'x-cache-hits': '0, 0',
+41 silly registry.get     'x-timer': 'S1400726065.996388197,VS0,VS-468,VE-386,VE294',
+41 silly registry.get     'keep-alive': 'timeout=10, max=50',
+41 silly registry.get     connection: 'Keep-Alive' } ]
+42 silly lockFile a2d29f34-private private:@
+43 silly lockFile a2d29f34-private private:@
+44 error 404 404 Not Found: private%3A
+44 error 404
+44 error 404 'private%3A' is not in the npm registry.
+44 error 404 You should bug the author to publish it
+44 error 404
+44 error 404 Note that you can also install from a
+44 error 404 tarball, folder, or http url, or git url.
+45 error System Darwin 13.1.0
+46 error command "node" "/usr/local/bin/npm" "install" "private:" "true,"
+47 error cwd /Users/yimmy/workspace/Chattr
+48 error node -v v0.10.28
+49 error npm -v 1.4.10
+50 error code E404
+51 verbose exit [ 1, true ]
