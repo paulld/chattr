@@ -8,7 +8,7 @@ suite "Chatrooms", ->
       emit "collection", collection
 
     ).once "collection", (collection) ->
-      assert.equal collection.length, 0
+      assert.equal collection.length, 6
       done()
 
 
@@ -20,39 +20,30 @@ suite "Chatrooms", ->
         name: "testName"
         description: "testDescription"
 
-      Meteor.call "addRoom", roomInfo
-      addedNewChatroom = (post) ->
-        emit('post', post)
+      chatroomId = Meteor.call "addRoom", roomInfo
+      sampleChatroom = Chatrooms.findOne {_id: chatroomId}
+      emit('createdChatroom', sampleChatroom)
 
-      Chatrooms.find().observe
-        added: addedNewChatroom
-
-    ).once "post", (post) ->
-      assert.equal post.name, "testName"
-      assert.equal post.description, "testDescription"
+    ).once 'createdChatroom', (sampleChatroom) ->
+      assert.equal sampleChatroom.name, "testName"
+      assert.equal sampleChatroom.description, "testDescription"
       done()
 
-
-    server.once "post", (post) ->
-      assert.equal post.name, "testName"
-      assert.equal post.description, "testDescription"
+    server.once 'createdChatroom', (sampleChatroom) ->
+      assert.equal sampleChatroom.name, "testName"
+      assert.equal sampleChatroom.description, "testDescription"
       done()
 
   test ".insert for Chatrooms", (done, server)->
-
     server["eval"](->
-      Chatrooms.insert {name: "testName", description: "testDescription"}
-      addedNewChatroom = (post) ->
-        emit('post', post)
 
-      Chatrooms.find().observe
-        added: addedNewChatroom
+      chatroomId = Chatrooms.insert {name: "testName", description: "testDescription"}
+      sampleChatroom = Chatrooms.findOne {_id: chatroomId}
+      emit('createdChatroom', sampleChatroom)
 
-
-
-    ).once 'post', (post) ->
-      assert.equal post.name, "testName"
-      assert.equal post.description, "testDescription"
+    ).once 'createdChatroom', (sampleChatroom) ->
+      assert.equal sampleChatroom.name, "testName"
+      assert.equal sampleChatroom.description, "testDescription"
       done()
 
 
