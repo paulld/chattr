@@ -10,8 +10,8 @@ Template.chatroom.events
 
 
 
-    Meteor.call 'deleteRoom', Inputs , (error) ->
+    Meteor.call 'deleteRoom', Inputs , (error, result) ->
       if error
         console.log(error)
-      else
+      if result
         Router.go 'home'
