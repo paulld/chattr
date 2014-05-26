@@ -2,6 +2,7 @@ Template.createChatroom.events
 
   "submit form": (e) ->
     e.preventDefault()
+    # current = null
 
     if Meteor.user()
       roomInfo =
@@ -14,11 +15,7 @@ Template.createChatroom.events
         if error
           alert(error.reason)
         else
-        current = result
-
-        # Router.go 'Chatroom', {_id:current}
-
-
+        Router.go 'chatroom', {_id:result}
 
     else
       alert "Must log in first!"

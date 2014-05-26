@@ -8,8 +8,6 @@ Template.chatroom.events
       owner: @createdBy
       userID : Meteor.userId()
 
-
-
     Meteor.call 'deleteRoom', Inputs , (error, result) ->
       if error
         console.log(error)
