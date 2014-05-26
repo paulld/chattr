@@ -11,13 +11,22 @@ Meteor.methods
     # throw new Meteor.Error(422, "Please fill in room name")  unless roominfo.name
 
     #pick out the whitelisted keys
-    roomAttributes = _.extend(_.pick(roomInfo, "name", "description"),
+    roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy"),
       # userId: user._id
       # author: user.username
       created: new Date().getTime()
     )
 
     chatroomId = Chatrooms.insert(roomAttributes)
+
+  deleteRoom: (Inputs) ->
+    name = Meteor.users.findOne(Inputs.userID).profile.name
+    if Inputs.owner is name
+      Chatrooms.remove(Inputs.roomname)
+
+
+
+
 
 
 
