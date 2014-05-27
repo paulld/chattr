@@ -23,6 +23,8 @@ Meteor.methods
     name = Meteor.users.findOne(Inputs.userID).profile.name
     if Inputs.owner is name
       Chatrooms.remove(Inputs.roomname)
+    else
+      throw new Meteor.Error(400, "You're not the owner of this room")
 
 
 

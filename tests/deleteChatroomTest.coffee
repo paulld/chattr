@@ -1,48 +1,35 @@
 assert = undefined
 assert = require("assert")
 suite "in-Chatroom functions", ->
+  test "delRoom function deletes room (if user is owner of room) ", (done, client, server) ->
+    client["eval"] ->
+
+      cid = Chatrooms.insert
+        createdBy: "testName"
 
 
+      userIDcreated = Meteor.users.insert
+        _id: "muo5sAqL6aPuRGnBB"
+        profile:
+          name: "testName"
+        # services:
+        #   github:
+        #     id: 7237136
+        #     accessToken: "c79012e86822952cb7bd52deae5db24bc66b8160"
+        #     email: "testName@gmail.com"
+        #     username: "jimmyboyboy"
 
+      Inputs =
+        roomname : cid
+        owner: "testName"
+        userID : userIDcreated
 
-  test "delRoom function deletes room (if ", (done, client, server) ->
-    client["eval"]->
-      server["eval"]->
-        Chatrooms.insert
-          createdBy: "testName"
-        emit "room", room
+      Meteor.call "deleteRoom", Inputs
+      deleted = Chatrooms.findOne({_id: cid})
+      emit('deleted', deleted )
 
-      Accounts.createUser
-        name: "testName"
-        password: "123456"
-
-
-
-
-
-    server.once 'createdChatroom', (sampleChatroom) ->
-      assert.equal sampleChatroom.name, "testName"
-      assert.equal sampleChatroom.description, "testDescription"
+    client.once 'deleted', (deleted) ->
+      assert.equal deleted, undefined
       done()
-
-    server.once 'createdChatroom', (sampleChatroom) ->
-      assert.equal sampleChatroom.name, "testName"
-      assert.equal sampleChatroom.description, "testDescription"
-      done()
-
-  # test ".insert for Chatrooms", (done, server)->
-  #   server["eval"](->
-
-  #     chatroomId = Chatrooms.insert {name: "testName", description: "testDescription"}
-  #     sampleChatroom = Chatrooms.findOne {_id: chatroomId}
-  #     emit('createdChatroom', sampleChatroom)
-
-  #   ).once 'createdChatroom', (sampleChatroom) ->
-  #     assert.equal sampleChatroom.name, "testName"
-  #     assert.equal sampleChatroom.description, "testDescription"
-  #     done()
-
-
-
 
 
