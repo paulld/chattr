@@ -1,6 +1,14 @@
 <template name="chatroom">
   <div class="chatroom">
-    <h2>{{name}}</h2>
-    <p>{{description}}</p>
-  </div>
+    <div class="row">
+      <div class="messages col-md-8">
+        <div class="row">
+          <h2 class="room-name col-md-4">{{name}}</h2>
+          <h3 class="room-description col-md-8">{{description}}</h3>
+        </div>
+        {{> messages}}
+        {{> messageInput}}
+      </div> <!-- /.messages -->
+    </div> <!-- /.row -->
+  </div> <!-- /.chatroom -->
 </template>

@@ -195,3 +195,5 @@ footer > .container {
 .login-buttons-dropdown-align-right {
   float: right;
 }
+
+.input-group .form-control { height: 34px;}
