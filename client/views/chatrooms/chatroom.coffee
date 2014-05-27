@@ -1,6 +1,6 @@
 Template.chatroom.events
 
-  "click": (e) ->
+  "click #delete-room": (e) ->
     e.preventDefault()
 
     Inputs =
