@@ -1,2 +1,3 @@
-Template.messages.messages = ->
-  Messages.find()
+Template.messages.helpers
+  messages: ->
+    Messages.find()
