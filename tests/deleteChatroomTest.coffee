@@ -4,25 +4,18 @@ suite "in-Chatroom functions", ->
   test "delRoom function deletes room (if user is owner of room) ", (done, client, server) ->
     client["eval"] ->
 
-      cid = Chatrooms.insert
-        createdBy: "testName"
-
-
       userIDcreated = Meteor.users.insert
         _id: "muo5sAqL6aPuRGnBB"
         profile:
           name: "testName"
-        # services:
-        #   github:
-        #     id: 7237136
-        #     accessToken: "c79012e86822952cb7bd52deae5db24bc66b8160"
-        #     email: "testName@gmail.com"
-        #     username: "jimmyboyboy"
+
+      cid = Chatrooms.insert
+        createdBy: "muo5sAqL6aPuRGnBB"
 
       Inputs =
         roomname : cid
-        owner: "testName"
-        userID : userIDcreated
+        owner: "muo5sAqL6aPuRGnBB"
+        userID : "muo5sAqL6aPuRGnBB"
 
       Meteor.call "deleteRoom", Inputs
       deleted = Chatrooms.findOne({_id: cid})

@@ -2,26 +2,15 @@
 
 Meteor.methods
   addRoom: (roomInfo) ->
-    # user = Meteor.user()
 
-    # # ensure the user is logged in
-    # throw new Meteor.Error(401, "You need to login to create chatrooms")  unless user
-
-    # # ensure the post has a title
-    # throw new Meteor.Error(422, "Please fill in room name")  unless roominfo.name
-
-    #pick out the whitelisted keys
     roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy"),
-      # userId: user._id
-      # author: user.username
       created: new Date().getTime()
     )
 
     chatroomId = Chatrooms.insert(roomAttributes)
 
   deleteRoom: (Inputs) ->
-    name = Meteor.users.findOne(Inputs.userID).profile.name
-    if Inputs.owner is name
+    if Inputs.userID is Inputs.owner
       Chatrooms.remove(Inputs.roomname)
     else
       throw new Meteor.Error(400, "You're not the owner of this room")

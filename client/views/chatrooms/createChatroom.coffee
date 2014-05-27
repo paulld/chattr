@@ -8,7 +8,7 @@ Template.createChatroom.events
       roomInfo =
         name: $(e.target).find('[name=room-name]').val()
         description: $(e.target).find('[name=description]').val()
-        createdBy: Meteor.users.findOne(Meteor.userId()).profile.name
+        createdBy: Meteor.userId()
 
       Meteor.call 'addRoom', roomInfo, (error, result) ->
       #enter name of room collection
