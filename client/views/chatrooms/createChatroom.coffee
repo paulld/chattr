@@ -2,7 +2,6 @@ Template.createChatroom.events
 
   "submit form": (e) ->
     e.preventDefault()
-    # current = null
 
     if Meteor.user()
       roomInfo =
@@ -11,10 +10,9 @@ Template.createChatroom.events
         createdBy: Meteor.userId()
 
       Meteor.call 'addRoom', roomInfo, (error, result) ->
-      #enter name of room collection
-        if error
-          alert(error.reason)
-        else
+      if error
+        alert(error.reason)
+      else
         Router.go 'chatroom', {_id:result}
 
     else

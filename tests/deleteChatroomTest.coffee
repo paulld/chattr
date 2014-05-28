@@ -1,4 +1,3 @@
-assert = undefined
 assert = require("assert")
 suite "in-Chatroom functions", ->
   test "delRoom function deletes room (if user is owner of room) ", (done, client, server) ->

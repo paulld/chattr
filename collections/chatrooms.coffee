@@ -2,12 +2,12 @@
 
 Meteor.methods
   addRoom: (roomInfo) ->
+    if Meteor.user()
+      roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy"),
+        created: new Date().getTime()
+      )
+      chatroomId = Chatrooms.insert(roomAttributes)
 
-    roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy"),
-      created: new Date().getTime()
-    )
-
-    chatroomId = Chatrooms.insert(roomAttributes)
 
   deleteRoom: (Inputs) ->
     if Inputs.userID is Inputs.owner
