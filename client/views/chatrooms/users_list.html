@@ -1,0 +1,12 @@
+<template name="usersList">
+  <label for="room-users" class="sr-only">Members</label>
+    <select id="list-of-users" class="multiselector" multiple name="user-list">
+      {{#each users}}
+         <option value="{{_id}}">{{profile.name}}</option>
+             option
+      {{/each}}
+    </select>&nbsp;
+  <label>
+    <input type="checkbox" id="select-all-users" > Select All
+  </label>
+</template>
