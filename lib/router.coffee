@@ -7,3 +7,6 @@ Router.map () ->
   @route 'chatroom',
     path: '/chatrooms/:_id',
     data: -> Chatrooms.findOne @params._id
+
+
+
