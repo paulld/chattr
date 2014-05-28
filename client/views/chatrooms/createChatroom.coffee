@@ -8,6 +8,7 @@ Template.createChatroom.events
         name: $(e.target).find('[name=room-name]').val()
         description: $(e.target).find('[name=description]').val()
         createdBy: Meteor.userId()
+        roomMembers: $(e.target).find('[name=user-list]').val()
 
       Meteor.call 'addRoom', roomInfo, (error, result) ->
       if error
