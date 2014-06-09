@@ -1,9 +1,18 @@
 <template name="chatroom">
   <div class="chatroom">
-    <h2>{{name}}</h2>
-    <p>{{description}}</p>
-    <div>
-      <input id="delete-room" type="button" class="btn btn-primary" value="Delete the room">
-    </div>
-  </div>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="messages col-md-8 well">
+          <div class="row chatroom-header">
+            <strong>{{name}}</strong> {{description}}
+          </div>
+          <div class="chatroom-messages well">{{> messages}}</div>
+          {{> messageInput}}
+          <div>
+            <input id="delete-room" type="button" class="btn btn-primary" value="Delete the room">
+          </div>
+        </div> <!-- /.messages -->
+      </div> <!-- row-fluid -->
+    </div> <!-- /.container -->
+  </div> <!-- /.chatroom -->
 </template>
