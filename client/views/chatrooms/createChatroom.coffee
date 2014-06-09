@@ -18,4 +18,3 @@ Template.createChatroom.events
 
     else
       alert "Must log in first!"
-

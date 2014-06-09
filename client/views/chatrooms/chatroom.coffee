@@ -13,3 +13,7 @@ Template.chatroom.events
         console.log(error)
       if result
         Router.go 'home'
+
+Template.messages.helpers
+  messages: ->
+    Messages.find()

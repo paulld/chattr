@@ -15,10 +15,4 @@ Meteor.methods
     else
       throw new Meteor.Error(401, "You're not the owner of this room")
 
-
-
-
-
-
-
-
+    chatroomId = Chatrooms.insert(roomAttributes)
