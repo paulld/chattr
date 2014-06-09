@@ -1,8 +1,12 @@
 <template name="chatroomsList">
-  <h2>Chatrooms</h2>
-  <ul>
-    {{#each getChatrooms}}
-      <li>{{> chatroomItem}}</li>
-    {{/each}}
-  </ul>
+  <div class="chatroom-list">
+    <h2>Chatrooms</h2>
+    <table class="table table-hover">
+      <tbody>
+      {{#each getChatrooms}}
+        <tr>{{> chatroomItem}}</tr>
+      {{/each}}
+      </tbody>
+    </table> <!-- ul.chatroom-list -->
+  </div> <!-- div.chatroom-list -->
 </template>

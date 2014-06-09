@@ -1,9 +1,7 @@
 <template name="chatroomItem">
-  <div class="row">
     <a href=" {{ pathFor 'chatroom' }}">
-      <div class="col-md-1">{{isEphemeral}}</div>
-      <div class="col-md-3">{{name}}</div>
-      <div class="col-md-4">{{description}}</div>
+      <td><div class="col-md-1">{{isEphemeral}}</div></td>
+      <td><div class="col-md-3">{{name}}</div></td>
+      <td><div class="col-md-4">{{description}}</div></td>
     </a>
-  </div>
 </template>
