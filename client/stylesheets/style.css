@@ -66,6 +66,14 @@ body > .container {
   font-size: 1.2em;
 }
 
+.chatroom-messages.well {
+  background-color: white;
+}
+
+.chatroom-header {
+  text-align: center;
+}
+
 .room-tags {
   color: hsla( 0, 0.0%, 70%, 1 );
 }
@@ -222,3 +230,7 @@ footer > .container {
 }
 
 .input-group .form-control { height: 34px;}
+
+.messages {
+  margin-top: 30px;
+}

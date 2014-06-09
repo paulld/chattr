@@ -12,4 +12,3 @@ Template.createChatroom.events
     #enter name of room collection
       if error
         alert(error.reason)
-

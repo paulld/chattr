@@ -4,10 +4,9 @@
       <div class="row-fluid">
         <div class="messages col-md-8 well">
           <div class="row chatroom-header">
-            <div class="span4"><h2 class="room-name"><strong>{{name}}</strong></h2></div>
-            <div class="span8"><p class="room-description">{{description}}</p></div>
+            <strong>{{name}}</strong> {{description}}
           </div>
-          {{> messages}}
+          <div class="chatroom-messages well">{{> messages}}</div>
           {{> messageInput}}
         </div> <!-- /.messages -->
       </div> <!-- row-fluid -->

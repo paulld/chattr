@@ -1,8 +1,8 @@
 Template.messageInput.events =
 
-  textEntered = () ->
-    if messageAttributes.message isnt ''
-      $('#message').change( () -> $('#messageSubmit').addClass('btn-active'))
+  # textEntered = () ->
+    # if messageAttributes.message snst ''
+      # $('#message').change( () -> $('#messageSubmit').addClass('btn-active'))
 
   'submit': (e) ->
     e.preventDefault()
