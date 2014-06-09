@@ -18,7 +18,3 @@ Meteor.methods
     )
 
     chatroomId = Chatrooms.insert(roomAttributes)
-
-
-
-
