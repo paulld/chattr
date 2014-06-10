@@ -1,23 +1,15 @@
 <template name="chatroomsList">
   <div class="chatrooms-list">
     <h2>Chatrooms</h2>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Ephemerality</th>
-          <th>Chatroom Name</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each getChatrooms}}
-          <tr>
-            <td><a href=" {{ pathFor 'chatroom' }}">{{isEphemeral}}</a></td>
-            <td><a href=" {{ pathFor 'chatroom' }}">{{name}}</a></td>
-            <td><a href=" {{ pathFor 'chatroom' }}">{{description}}</a></td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table> <!-- /.table-hover -->
+    {{#each getChatrooms}}
+      <a href=" {{ pathFor 'chatroom' }}">
+        <dl class="dl-horizontal">
+          <div class="listed-chatroom">
+            <dt>{{isEphemeral}} {{name}}</dt>
+            <dd>{{description}}</dd>
+          </div>
+        </dl>
+      </a>
+    {{/each}}
   </div> <!-- div.chatroom-list -->
 </template>

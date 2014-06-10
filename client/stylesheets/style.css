@@ -116,8 +116,8 @@ ul.challenges li ol li {
   margin-left: -5px;
 }
 
-div.chatroom-header {
-
+div.listed-chatroom:hover {
+  background-color: #eee;
 }
 
 ul.chatroom-messages {
