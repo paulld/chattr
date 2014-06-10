@@ -120,6 +120,10 @@ div.listed-chatroom:hover {
   background-color: #eee;
 }
 
+div.well.chatrooms-list {
+  background-color: white;
+}
+
 ul.chatroom-messages {
   list-style: none;
 }
