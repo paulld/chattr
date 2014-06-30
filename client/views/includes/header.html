@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="{{pathFor 'home'}}">Chattr</a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Chattr</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul id="header-navlinks" class="nav navbar-nav">
@@ -16,8 +16,10 @@
           </li>
           <li><a id="questions-link" href="#">Questions</a></li>
         </ul>
-        <div class="login">
-          {{> loginButtons align="right"}}
+        <div class="nav navbar-nav navbar-right">
+          <div class="login-buttons">
+            {{> loginButtons align="right"}}
+          </div>
         </div>
       </div>
     </div>
