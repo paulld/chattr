@@ -1,0 +1,20 @@
+div.well.chatrooms-list {
+  background-color: #fff;
+}
+
+tr.listed-chatroom:hover {
+  background-color: #f5f5f5;
+}
+
+.chatroom-table-temporary {
+  width: 10%;
+  text-align: center;
+}
+.chatroom-table-name {
+  width: 30%;
+  text-align: left;
+}
+.chatroom-table-description {
+  width: 60%;
+  text-align: left;
+}

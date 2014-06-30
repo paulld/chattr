@@ -2,16 +2,34 @@
   <div class="well">
   <h2>Chatrooms</h2>
     <div class="well chatrooms-list">
-      {{#each getChatrooms}}
-        <a href=" {{ pathFor 'chatroom' }}">
-          <dl class="dl-horizontal">
-            <div class="listed-chatroom">
-              <dt>{{isEphemeral}} {{name}}</dt>
-              <dd>{{description}}</dd>
-            </div> <!-- /.listed-chatroom -->
-          </dl>
-        </a>
-      {{/each}}
-    </div> <!-- /.well.chatroom-list -->
-  </div> <!-- /.well -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="sr-only">Temporary or Permanent Chat Room</th>
+            <th class="sr-only">Chat Room Name</th>
+            <th class="sr-only">Chat Room Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each getChatrooms}}
+            <tr class="listed-chatroom">
+              <td class="chatroom-table-temporary">
+                {{isEphemeral}}
+              </td>
+              <td class="chatroom-table-name">
+                <a href="{{ pathFor 'chatroom' }}">
+                  {{name}}
+                </a>
+              </td>
+              <td class="chatroom-table-description">
+                <a href="{{ pathFor 'chatroom' }}">
+                  {{description}}
+                </a>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
