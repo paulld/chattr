@@ -14,11 +14,13 @@ Template.createChatroom.events
         roomMembers: $(e.target).find('[name=user-list]').val()
         isTemporary: temp
 
+      console.log "room info: ", roomInfo
+
       Meteor.call 'addRoom', roomInfo, (error, result) ->
-      if error
-        alert(error.reason)
-      else
-        Router.go 'chatroom', {_id:result}
+        if error
+          alert(error.reason)
+        else
+          Router.go 'chatroom', {_id:result}
 
     else
       alert "Must log in first!"

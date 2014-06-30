@@ -1,12 +1,21 @@
 @Chatrooms = new Meteor.Collection 'chatrooms'
 
 Meteor.methods
-  addRoom: (roomInfo) ->
-    if Meteor.user()
-      roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy", "roomMembers", "isTemporary"),
-        created: new Date().getTime()
-      )
-      chatroomId = Chatrooms.insert(roomAttributes)
+
+  addRoom: (roomAttributes) ->
+    user = Meteor.user()
+
+    unless user
+      throw new Meteor.Error(401, "Login to create a room")
+
+    unless roomAttributes.name
+      throw new Meteor.Error(422, 'Please pick a name for the room')
+
+    room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "isTemporary"),
+      created: new Date().getTime()
+    )
+
+    chatroomId = Chatrooms.insert(room)
 
 
   deleteRoom: (Inputs) ->
