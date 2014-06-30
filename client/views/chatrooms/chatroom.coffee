@@ -14,6 +14,10 @@ Template.chatroom.events
       if result
         Router.go 'home'
 
+Template.chatroom.helpers
+  isOwner: ->
+    Meteor.userId() == @createdBy
+
 Template.messages.helpers
   messages: ->
     Messages.find()

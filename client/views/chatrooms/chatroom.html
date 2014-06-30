@@ -2,17 +2,29 @@
   <div class="chatroom">
     <div class="container">
       <div class="row-fluid">
-        <div class="messages col-md-8 well">
-          <div class="row chatroom-header">
-            <strong>{{name}}</strong> {{description}}
+        <div class="col-md-8">
+          <div class="messages well">
+            <div class="row chatroom-header">
+              <h1>{{name}}</h1>
+              <h2>{{description}}</h2>
+            </div>
+            <div class="chatroom-messages well">{{> messages}}</div>
+            {{> messageInput}}
           </div>
-          <div class="chatroom-messages well">{{> messages}}</div>
-          {{> messageInput}}
-          <div>
-            <input id="delete-room" type="button" class="btn btn-primary" value="Delete the room">
+
+        </div>
+        <div class="col-md-4">
+          {{#if isOwner}}
+            <div class="messages well">
+              <input id="delete-room" type="button" class="btn btn-primary" value="Delete the room">
+            </div>
+          {{/if}}
+          <div class="messages well">
+            <h2>Chatroom users</h2>
+            <!-- Add list of users' names -->
           </div>
-        </div> <!-- /.messages -->
-      </div> <!-- row-fluid -->
-    </div> <!-- /.container -->
-  </div> <!-- /.chatroom -->
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
