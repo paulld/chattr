@@ -14,6 +14,7 @@ Router.map () ->
     path: '/chatrooms'
     waitOn: ->
       Meteor.subscribe 'users'
+    data: -> Chatrooms.find()
 
   @route 'chatroom',
     path: '/chatrooms/:_id',
