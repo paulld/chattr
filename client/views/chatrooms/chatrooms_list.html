@@ -14,7 +14,11 @@
           {{#each getChatrooms}}
             <tr class="listed-chatroom">
               <td class="chatroom-table-temporary">
-                {{isEphemeral}}
+                {{#if isTemporary}}
+                  <span class="glyphicon glyphicon-trash"></span>
+                {{else}}
+                  <span class="glyphicon glyphicon-folder-open"></span>
+                {{/if}}
               </td>
               <td class="chatroom-table-name">
                 <a href="{{ pathFor 'chatroom' }}">
