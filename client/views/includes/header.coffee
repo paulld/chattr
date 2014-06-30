@@ -1,3 +1,9 @@
+Template.header.events
+  'click .login-button': ->
+    if user = Meteor.user()
+      unless user.profile.name
+        Meteor.call 'updateProfileName'
+
 Template.header.helpers
   activeRouteClass: () ->
     args = Array.prototype.slice.call arguments, 0
