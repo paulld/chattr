@@ -3,7 +3,7 @@
 Meteor.methods
   addRoom: (roomInfo) ->
     if Meteor.user()
-      roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy", "roomMembers"),
+      roomAttributes = _.extend(_.pick(roomInfo, "name", "description", "createdBy", "roomMembers", "isTemporary"),
         created: new Date().getTime()
       )
       chatroomId = Chatrooms.insert(roomAttributes)
