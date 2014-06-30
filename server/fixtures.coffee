@@ -5,7 +5,7 @@ if Chatrooms.find().count() is 0
   for i in [1..6] by 2
     Chatrooms.insert
       name: "Room " + i
-      createdBy: "Douglas Adams"
+      createdBy: "zKzzxzWW5RZQWfRnm"
       description: "room description"
       created: now - i * 3600 * 1000
       isPrivate: true
@@ -16,7 +16,7 @@ if Chatrooms.find().count() is 0
   for i in [2..7] by 2
     Chatrooms.insert
       name: "Room " + i
-      createdBy: "Douglas Adams"
+      createdBy: "muo5sAqL6aPuRGnGv"
       description: "room description"
       created: now - i * 3600 * 1000
       isPrivate: true
