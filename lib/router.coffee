@@ -2,7 +2,10 @@ Router.configure
   layoutTemplate: 'layout'
 
 Router.map () ->
+
   @route 'home', path: '/'
+
+  @route 'home', path: '/chatrooms'
 
   @route 'chatroom',
     path: '/chatrooms/:_id',

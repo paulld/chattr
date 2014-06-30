@@ -10,39 +10,9 @@
       <div class="collapse navbar-collapse">
         <ul id="header-navlinks" class="nav navbar-nav">
           <li class="{{activeRouteClass 'home'}}">
-            <a href="#">Rooms</a>
-          </li>
-          <li class="{{activeRouteClass}}">
-            <a href="#">Links</a>
-          </li>
-          <li class="{{activeRouteClass}}">
-            <a href="#">Questions</a>
-          </li>
-          <li class="{{activeRouteClass}}">
-            <a href="#">Uploads</a>
-          </li>
-          <li class="{{activeRouteClass}}">
-            <a href="#">Users</a>
+            <a href="{{pathFor 'home'}}">Rooms</a>
           </li>
         </ul>
-        <form id="search-form" class="navbar-form navbar-right">
-          <fieldset id="advanced-fields" class="advanced-fields">
-            <label class="checkbox-inline">
-              <input type="checkbox" name="archived" value="true" checked> archived
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" name="active" value="true" checked> active
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" name="tags" value="true" checked> tags
-            </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" name="titles" value="true" checked> titles
-            </label>
-          </fieldset>
-          <input id="search-field" type="text" class="form-control" placeholder="Search...">
-          <button class="btn btn-sm btn-primary search"><span class="glyphicon glyphicon-search"></span></button>
-        </form>
       </div>
     </div>
     <div class="login">
