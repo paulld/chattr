@@ -1,10 +1,14 @@
 Template.createChatroom.events
 
+  "click input": (e) ->
+    $('#new-room-options').show()
+
+
   "submit form": (e) ->
     e.preventDefault()
-
+    
     if Meteor.user()
-      temp = $(e.target).find('[name=permanent]:checked').val() is "true"
+      temp = $(e.target).find('[name=room-type]:checked').val() is "true"
       # TODO: improve this code: how to convert "true" to true and "false" to false?
 
       roomInfo =
@@ -22,3 +26,5 @@ Template.createChatroom.events
 
     else
       alert "Must log in first!"
+
+
