@@ -116,14 +116,6 @@ ul.challenges li ol li {
   margin-left: -5px;
 }
 
-div.listed-chatroom:hover {
-  background-color: #f5f5f5;
-}
-
-div.well.chatrooms-list {
-  background-color: #fff;
-}
-
 ul.chatroom-messages {
   list-style: none;
 }
