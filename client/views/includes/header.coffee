@@ -1,8 +1,10 @@
 Template.header.events
-  'click .login-button': ->
-    if user = Meteor.user()
-      unless user.profile.name
-        Meteor.call 'updateProfileName'
+  'click #login-buttons': ->
+    setTimeout( ->
+      if user = Meteor.user()
+        if user.profile.name == "" or user.profile.name == null
+          Meteor.call 'updateProfileName'
+    , 6000)
 
 Template.header.helpers
   activeRouteClass: () ->
