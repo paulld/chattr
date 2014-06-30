@@ -3,9 +3,18 @@ Router.configure
 
 Router.map () ->
 
-  @route 'home', path: '/'
+  @route 'index',
+    path: '/',
+    template: 'home',
+    waitOn: ->
+      Meteor.subscribe 'users'
+  # TODO: Reroute index to /chatrooms instead of duplcating
 
-  @route 'home', path: '/chatrooms'
+  @route 'home',
+    path: '/chatrooms'
+    waitOn: ->
+      Meteor.subscribe 'users'
+    data: -> Chatrooms.find()
 
   @route 'chatroom',
     path: '/chatrooms/:_id',
