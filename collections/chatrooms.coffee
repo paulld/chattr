@@ -13,6 +13,7 @@ Meteor.methods
 
     room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "isTemporary"),
       created: new Date().getTime()
+      createdBy: user._id
     )
 
     chatroomId = Chatrooms.insert(room)
