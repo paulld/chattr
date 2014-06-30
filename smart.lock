@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "mocha-web": {}
+      "mocha-web": {},
+      "less-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/mad-eye/meteor-mocha-web.git",
         "tag": "v0.2.4",
         "commit": "97194bc90ea9b32047973ff44562a3da3b4e7477"
+      },
+      "less-bootstrap-3": {
+        "git": "https://github.com/DerMambo/less-bootstrap-3.git",
+        "tag": "v0.0.1",
+        "commit": "1321ac0ebc809bc354186b96f4c28b7042e38507"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

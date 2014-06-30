@@ -5,10 +5,10 @@
 
 standard-app-packages
 insecure
-bootstrap
 coffeescript
-less
 iron-router
 accounts-ui
 accounts-github
 service-configuration
+less
+less-bootstrap-3
