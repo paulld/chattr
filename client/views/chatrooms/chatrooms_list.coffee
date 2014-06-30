@@ -1,2 +1,2 @@
 Template.chatroomsList.helpers
-    getChatrooms: -> Chatrooms.find().fetch()
+  getChatrooms: -> Chatrooms.find().fetch()
