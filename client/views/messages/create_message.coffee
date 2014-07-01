@@ -1,9 +1,5 @@
 Template.createMessage.events =
 
-  # textEntered = () ->
-    # if messageAttributes.message snst ''
-      # $('#message').change( () -> $('#messageSubmit').addClass('btn-active'))
-
   'submit': (e) ->
     e.preventDefault()
 
@@ -17,13 +13,11 @@ Template.createMessage.events =
           chatroomId: @_id
           content: content
 
-        # unless messageInfo.message is ''
         Meteor.call 'addMessage', messageInfo, (error, result) ->
-          #  Add error messages here…
           if error
             alert(error.reason)
           else
-          content.value = ''
+            $(e.target).find('[id=content]').val('')
 
     else
       alert "Please log in!"
