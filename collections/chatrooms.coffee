@@ -5,10 +5,11 @@ Meteor.methods
   addRoom: (roomAttributes) ->
     user = Meteor.user()
 
-    # TODO: Add validation for temporary or permanent selected
-
     unless user
       throw new Meteor.Error(401, "Login to create a room")
+
+    unless roomAttributes.isTemporary
+      throw new Meteor.Error(422, 'Please choose a room type: temporary of permanent')
 
     unless roomAttributes.name
       throw new Meteor.Error(422, 'Please pick a name for the room')
@@ -26,7 +27,7 @@ Meteor.methods
       createdBy: user._id
     )
 
-    chatroomId = Chatrooms.insert(room)
+    Chatrooms.insert(room)
 
   deleteRoom: (Inputs) ->
     if Inputs.userID is Inputs.owner
