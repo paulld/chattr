@@ -16,6 +16,9 @@ Meteor.methods
     unless roomAttributes.description
       throw new Meteor.Error(422, 'Please add a description for the room')
 
+    unless roomAttributes.roomMembers
+      throw new Meteor.Error(422, 'Please add at least one person to chat with')
+
     roomAttributes.roomMembers.push(user._id)
 
     room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "isTemporary"),
