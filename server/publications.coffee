@@ -11,12 +11,3 @@ Meteor.publish 'messages', (chatroomId) ->
 
 Meteor.publish 'users', () ->
   Meteor.users.find( {}, {fields: {'profile.name', 'services.github.username'}})
-
-Meteor.publish 'members', (chatroomId) ->
-  room = Chatrooms.findOne(_id: chatroomId)
-  roomMembers = room.roomMembers
-  x = []
-  for memberId in roomMembers
-    m = Meteor.users.findOne({_id: memberId})
-    x.push(m)
-  x

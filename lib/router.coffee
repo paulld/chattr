@@ -25,10 +25,7 @@ Router.map () ->
         Meteor.subscribe 'chatroom', @params._id
         Meteor.subscribe 'messages', @params._id
         Meteor.subscribe 'users'
-        # Meteor.subscribe 'members', @params._id
       ]
-    data: ->
-      chatRoom = Chatrooms.findOne @params._id
-      # roomMembers = Meteor.subscribe 'members', @params._id
+    data: -> Chatrooms.findOne @params._id
 
 Router.onBeforeAction 'loading'
