@@ -19,14 +19,9 @@ Template.chatroom.helpers
     Meteor.userId() == @createdBy
 
   members: ->
-    console.log @roomMembers
-  #   # room = Chatrooms.find({_id: @_id}).fetch()
-  #   # console.log room[0]
-  #   # x = []
-  #   # for memberId in @roomMembers
-  #   #   m = Meteor.users.find
-  #   #     _id: memberId
-  #   #   x.push(m)
-  #   # x
-
-  # #   name = 
+    if @roomMembers
+      members = []
+      for memberId in @roomMembers
+        member = Meteor.users.findOne({_id: memberId})
+        members.push(member)
+      members
