@@ -17,8 +17,6 @@ Template.createChatroom.events
         roomMembers: $(e.target).find('[name=user-list]').val()
         isTemporary: temp
 
-      console.log "room members: ", roomInfo.roomMembers
-
       Meteor.call 'addRoom', roomInfo, (error, result) ->
         if error
           alert(error.reason)
