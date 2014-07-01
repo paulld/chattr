@@ -1,6 +1,10 @@
 Meteor.publish 'chatrooms', () ->
   Chatrooms.find()
 
+Meteor.publish 'chatroom', (id) ->
+  Chatrooms.find
+    _id: id
+
 Meteor.publish 'messages', (chatroomId) ->
   Messages.find
     chatroomId: chatroomId
