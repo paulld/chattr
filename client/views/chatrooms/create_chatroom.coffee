@@ -24,6 +24,4 @@ Template.createChatroom.events
           Router.go 'chatroom', {_id:result}
 
     else
-      alert "Must log in first!"
-
-
+      alert "Please log in!"

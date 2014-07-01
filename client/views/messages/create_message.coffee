@@ -7,15 +7,23 @@ Template.createMessage.events =
   'submit': (e) ->
     e.preventDefault()
 
-    $message = $(e.target).find('[id=message]')
-    messageAttributes =
-      chatroomId: @_id
-      message: $message.val()
+    if Meteor.user()
 
-    unless messageAttributes.message is ''
-      Meteor.call 'addMessage', messageAttributes, (error, result) ->
-        #  Add error messages here…
-        # if error
-        #   console.log error
-        # else
-        message.value = ''
+      content = $(e.target).find('[id=content]').val()
+
+      unless content is ''
+        
+        messageInfo =
+          chatroomId: @_id
+          content: content
+
+        # unless messageInfo.message is ''
+        Meteor.call 'addMessage', messageInfo, (error, result) ->
+          #  Add error messages here…
+          if error
+            alert(error.reason)
+          else
+          content.value = ''
+
+    else
+      alert "Please log in!"
