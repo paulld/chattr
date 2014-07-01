@@ -20,4 +20,5 @@ Router.map () ->
     path: '/chatrooms/:_id',
     waitOn: ->
       Meteor.subscribe 'messages', @params._id
+      # Meteor.subscribe 'members'
     data: -> Chatrooms.findOne @params._id
