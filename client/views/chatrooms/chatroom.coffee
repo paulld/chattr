@@ -3,12 +3,14 @@ Template.chatroom.events
   "click #delete-room": (e) ->
     e.preventDefault()
 
-    Inputs =
-      roomname : @_id
+    inputs =
+      roomId: @_id
       owner: @createdBy
-      userID : Meteor.userId()
+      members: @roomMembers
 
-    Meteor.call 'deleteRoom', Inputs , (error, result) ->
+    console.log "inputs: ", inputs
+
+    Meteor.call 'deleteRoom', inputs , (error, result) ->
       if error
         console.log(error)
       if result

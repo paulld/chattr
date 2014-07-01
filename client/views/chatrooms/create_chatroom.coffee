@@ -6,7 +6,7 @@ Template.createChatroom.events
 
   "submit form": (e) ->
     e.preventDefault()
-    
+
     if Meteor.user()
       temp = $(e.target).find('[name=room-type]:checked').val() is "true"
       # TODO: improve this code: how to convert "true" to true and "false" to false?

@@ -8,8 +8,8 @@ Meteor.methods
     unless user
       throw new Meteor.Error(401, "Login to create a room")
 
-    unless roomAttributes.isTemporary
-      throw new Meteor.Error(422, 'Please choose a room type: temporary of permanent')
+    # unless roomAttributes.isTemporary
+    #   throw new Meteor.Error(422, 'Please choose a room type: temporary of permanent')
 
     unless roomAttributes.name
       throw new Meteor.Error(422, 'Please pick a name for the room')
@@ -27,10 +27,18 @@ Meteor.methods
       createdBy: user._id
     )
 
-    Chatrooms.insert(room)
+    if chatroomId = Chatrooms.insert(room)
+      for member in roomAttributes.roomMembers
+        Meteor.users.update({_id:member}, {$push:{"profile.belongsToRooms":chatroomId}})
 
-  deleteRoom: (Inputs) ->
-    if Inputs.userID is Inputs.owner
-      Chatrooms.remove(Inputs.roomname)
+    chatroomId
+
+  deleteRoom: (inputs) ->
+    roomId = inputs.roomId
+    if Meteor.userId() is inputs.owner
+      if Chatrooms.remove(inputs.roomId)
+        for member in inputs.members
+          Meteor.users.update({_id:member}, {$pull:{"profile.belongsToRooms":roomId}})
+
     else
       throw new Meteor.Error(401, "You're not the owner of this room")
