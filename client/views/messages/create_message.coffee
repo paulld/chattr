@@ -1,4 +1,4 @@
-Template.messageInput.events =
+Template.createMessage.events =
 
   # textEntered = () ->
     # if messageAttributes.message snst ''

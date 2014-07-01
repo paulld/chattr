@@ -17,7 +17,3 @@ Template.chatroom.events
 Template.chatroom.helpers
   isOwner: ->
     Meteor.userId() == @createdBy
-
-Template.messages.helpers
-  messages: ->
-    Messages.find()

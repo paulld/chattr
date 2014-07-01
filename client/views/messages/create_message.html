@@ -1,13 +1,4 @@
-<template name="messages">
-    <ul class="chatroom-messages">
-      {{#each messages}}
-        <li>{{userId}}: {{message}}</li>
-      {{/each}}
-    </ul>
-</template>
-
-
-<template name="messageInput">
+<template name="createMessage">
   <form>
     <div class="input-group">
       <input type="text" class="form-control" id="message" placeholder="Enter message…">

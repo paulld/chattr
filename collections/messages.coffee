@@ -3,7 +3,8 @@
 Meteor.methods
   addMessage: (messageAttributes) ->
     message = _.extend(_.pick(messageAttributes, 'chatroomId', 'message'),
-      userId: Meteor.userId()
+      authorId: Meteor.userId()
+      authorName: user.profile.name
       submitted: Date.now()
     )
     Messages.insert message
