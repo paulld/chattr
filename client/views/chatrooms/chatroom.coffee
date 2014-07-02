@@ -21,8 +21,5 @@ Template.chatroom.helpers
 
   members: ->
     if @roomMembers
-      roomMembers = []
-      for memberId in @roomMembers
+      roomMembers = _.map @roomMembers, (memberId) ->
         member = Meteor.users.findOne({_id: memberId})
-        roomMembers.push(member)
-      roomMembers
