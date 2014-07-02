@@ -13,6 +13,6 @@ Meteor.methods
     message = _.extend(_.pick(messageAttributes, 'chatroomId', 'content'),
       authorId: Meteor.userId()
       authorName: user.profile.name
-      submitted: Date.now()
+      createdAd: Date.now()
     )
     Messages.insert message

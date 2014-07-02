@@ -1,7 +1,16 @@
 <template name="messagesList">
-    <ul class="chatroom-messages">
-      {{#each messages}}
-        <li>{{authorName}}: {{content}}</li>
-      {{/each}}
-    </ul>
+  <table class="table">
+      <thead>
+        <tr>
+          <th class="sr-only">Author</th>
+          <th class="sr-only">Message Content</th>
+          <th class="sr-only">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each messages}}
+          {{> message}}
+        {{/each}}
+      </tbody>
+    </table>
 </template>
