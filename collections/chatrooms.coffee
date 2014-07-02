@@ -35,9 +35,9 @@ Meteor.methods
 
   deleteRoom: (inputs) ->
     roomId = inputs.roomId
-    if Meteor.userId() is inputs.owner
+    if Meteor.userId() is inputs.createdBy
       if Chatrooms.remove(inputs.roomId)
-        for member in inputs.members
+        for member in inputs.roomMembers
           Meteor.users.update({_id:member}, {$pull:{"profile.belongsToRooms":roomId}})
 
     else
