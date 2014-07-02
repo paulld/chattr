@@ -3,16 +3,17 @@ Template.chatroom.events
   "click #delete-room": (e) ->
     e.preventDefault()
 
-    inputs =
-      roomId: @_id
-      owner: @createdBy
-      members: @roomMembers
+    if confirm "Delete this room?"
+      inputs =
+        roomId: @_id
+        createdBy: @createdBy
+        roomMembers: @roomMembers
 
-    Meteor.call 'deleteRoom', inputs , (error, result) ->
-      if error
-        console.log(error)
-      if result
-        Router.go 'home'
+      Meteor.call 'deleteRoom', inputs , (error, result) ->
+        if error
+          console.log(error)
+        if result
+          Router.go 'home'
 
 Template.chatroom.helpers
   isOwner: ->
@@ -20,8 +21,8 @@ Template.chatroom.helpers
 
   members: ->
     if @roomMembers
-      members = []
+      roomMembers = []
       for memberId in @roomMembers
         member = Meteor.users.findOne({_id: memberId})
-        members.push(member)
-      members
+        roomMembers.push(member)
+      roomMembers
