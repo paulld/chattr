@@ -4,11 +4,8 @@ Template.createMessage.events =
     e.preventDefault()
 
     if Meteor.user()
-
       content = $(e.target).find('[id=content]').val()
-
       unless content is ''
-        
         messageInfo =
           chatroomId: @_id
           content: content
