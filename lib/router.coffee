@@ -1,5 +1,6 @@
 Router.configure
   layoutTemplate: 'layout'
+  loadingTemplate: 'loading'
 
 Router.map () ->
 
@@ -17,8 +18,14 @@ Router.map () ->
     data: -> Chatrooms.find()
 
   @route 'chatroom',
+
     path: '/chatrooms/:_id',
     waitOn: ->
-      Meteor.subscribe 'messages', @params._id
-      # Meteor.subscribe 'members'
+      [
+        Meteor.subscribe 'chatroom', @params._id
+        Meteor.subscribe 'messages', @params._id
+        Meteor.subscribe 'users'
+      ]
     data: -> Chatrooms.findOne @params._id
+
+Router.onBeforeAction 'loading'

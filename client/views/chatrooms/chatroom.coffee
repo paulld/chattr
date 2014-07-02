@@ -8,8 +8,6 @@ Template.chatroom.events
       owner: @createdBy
       members: @roomMembers
 
-    console.log "inputs: ", inputs
-
     Meteor.call 'deleteRoom', inputs , (error, result) ->
       if error
         console.log(error)
@@ -19,3 +17,11 @@ Template.chatroom.events
 Template.chatroom.helpers
   isOwner: ->
     Meteor.userId() == @createdBy
+
+  members: ->
+    if @roomMembers
+      members = []
+      for memberId in @roomMembers
+        member = Meteor.users.findOne({_id: memberId})
+        members.push(member)
+      members

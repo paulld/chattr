@@ -23,7 +23,13 @@
       {{/if}}
       <div class="well">
         <h2>Chatroom users</h2>
-        <!-- Add list of users' names -->
+        <ul class="list-unstyled">
+          {{#each members}}
+            <li>
+              {{profile.name}}
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>

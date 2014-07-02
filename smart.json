@@ -2,6 +2,7 @@
   "packages": {
     "iron-router": {},
     "mocha-web": {},
-    "less-bootstrap-3": {}
+    "less-bootstrap-3": {},
+    "spin": {}
   }
 }
