@@ -10,4 +10,4 @@ Meteor.publish 'messages', (chatroomId) ->
     chatroomId: chatroomId
 
 Meteor.publish 'users', () ->
-  Meteor.users.find( {}, {fields: {'profile.name', 'services.github.username'}})
+  Meteor.users.find( {}, {fields: {'profile.name', 'services.github.username', '_id'}})

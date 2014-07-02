@@ -1,3 +1,4 @@
 Template.usersList.helpers
   users:->
-    Meteor.users.find()
+    _.reject Meteor.users.find().fetch(), (user) ->
+      user._id is Meteor.userId()
