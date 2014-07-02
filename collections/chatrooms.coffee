@@ -23,7 +23,7 @@ Meteor.methods
     roomAttributes.roomMembers.push(user._id)
 
     room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "isTemporary"),
-      created: new Date().getTime()
+      createdAt: new Date().getTime()
       createdBy: user._id
     )
 
