@@ -1,17 +1,20 @@
 Template.message.helpers
   timeAgo: ->
     moment(@createdAt).fromNow()
-  date: ->
-    moment(@createdAt).format("D MMMM YYYY")
-  time: ->
-    moment(@createdAt).format("h:mm:ss A")
 
 
 Template.message.events =
   'mouseover #time': (e) ->
-    $(e.target).find('.time-ago').hide()
-    $(e.target).find('.time-date').show()
-
+    $(e.target)
+      .html(
+        moment(@createdAt).format('D MMMM YYYY') +
+        '<br>' +
+        moment(@createdAt).format('h:mm:ss A')
+      )
+      .addClass('time-date')
   'mouseout #time': (e) ->
-    $(e.target).find('.time-ago').show()
-    $(e.target).find('.time-date').hide()
+    $(e.target)
+      .html(
+        moment(@createdAt).fromNow()
+      )
+      .removeClass('time-date')
