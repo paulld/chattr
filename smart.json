@@ -4,6 +4,7 @@
     "mocha-web": {},
     "less-bootstrap-3": {},
     "spin": {},
-    "moment": {}
+    "moment": {},
+    "font-awesome-4.1.0": {}
   }
 }
