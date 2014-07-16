@@ -1,5 +1,6 @@
 Meteor.publish 'chatrooms', () ->
   Chatrooms.find()
+# TODO: Keep chatrooms publication for admin ?
 
 Meteor.publish 'currentUserChatrooms', () ->
   currentUser = Meteor.users.findOne
@@ -12,12 +13,15 @@ Meteor.publish 'currentUserChatrooms', () ->
 
 
 Meteor.publish 'chatroom', (id) ->
-  out = Chatrooms.find
-    _id: id
-  if _.contains(out.fetch()[0].roomMembers, this.userId)
-    out
+  out = Chatrooms.find( { _id: id } )
+  if out.fetch() is not []
+    if _.contains(out.fetch()[0].roomMembers, this.userId)
+      out
+    else
+      # TODO: Better syntax? Throw not_found error?
   else
-    # THROW ERROR??
+    out
+      # TODO: Way to throw error/empty cursor when try to access a restricted room?
 
 
 Meteor.publish 'messages', (chatroomId) ->

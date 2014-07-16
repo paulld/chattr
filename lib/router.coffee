@@ -1,7 +1,6 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
-  notFoundTemplate: 'error'
 
 Router.map () ->
 
@@ -23,7 +22,7 @@ Router.map () ->
   @route 'chatroom',
 
     path: '/chatrooms/:_id',
-    notFoundTemplate: 'error'
+    notFoundTemplate: 'notFound'
     waitOn: ->
       [
         Meteor.subscribe 'chatroom', @params._id
@@ -31,6 +30,9 @@ Router.map () ->
         Meteor.subscribe 'users'
       ]
     data: -> Chatrooms.findOne @params._id
+    # TODO: throw not_found when receive empty cursor?
 
+  @route 'notFound',
+    path: '*'
 
 Router.onBeforeAction 'loading'
