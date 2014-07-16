@@ -22,12 +22,14 @@
         </div>
       {{/if}}
       <div class="well">
-        <h2>Tags</h2>
-        <div>
-          {{#each tagsList}}
-          <button class="btn btn-alert">{{this}}</button>
-          {{/each}}
-        </div>
+        {{#if tagsList}}
+          <h2>Tags</h2>
+          <div>
+            {{#each tagsList}}
+            <button class="btn btn-alert">{{this}}</button>
+            {{/each}}
+          </div>
+        {{/if}}
         <h2>Chatroom users</h2>
         <ul class="list-unstyled">
           {{#each members}}

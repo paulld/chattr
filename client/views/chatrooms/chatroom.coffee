@@ -25,4 +25,4 @@ Template.chatroom.helpers
         member = Meteor.users.findOne({_id: memberId})
 
   tagsList: ->
-    @tags.split(',')
+    if @tags then @tags.split(',') else []
