@@ -20,9 +20,12 @@ Meteor.methods
     unless roomAttributes.roomMembers
       throw new Meteor.Error(422, 'Please add at least one person to chat with')
 
+    unless roomAttributes.tags
+      throw new Meteor.Error(422, 'Please add at least one tag')
+
     roomAttributes.roomMembers.push(user._id)
 
-    room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "isTemporary"),
+    room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "tags", "isTemporary"),
       createdAt: new Date().getTime()
       createdBy: user._id
     )

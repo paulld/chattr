@@ -23,3 +23,6 @@ Template.chatroom.helpers
     if @roomMembers
       roomMembers = _.map @roomMembers, (memberId) ->
         member = Meteor.users.findOne({_id: memberId})
+
+  tagsList: ->
+    @tags.split(',')
