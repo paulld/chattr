@@ -19,7 +19,7 @@ Router.map () ->
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
-  @route 'chatroom',
+  @route 'chatroomItem',
 
     path: '/chatrooms/:_id',
     notFoundTemplate: 'notFound'

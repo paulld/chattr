@@ -22,7 +22,7 @@ Template.createChatroom.events
         if error
           alert(error.reason)
         else
-          Router.go 'chatroom', {_id:result}
+          Router.go 'chatroomItem', {_id:result}
 
     else
       alert "Please log in!"
