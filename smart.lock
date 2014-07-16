@@ -7,7 +7,9 @@
       "less-bootstrap-3": {},
       "spin": {},
       "moment": {},
-      "font-awesome-4.1.0": {}
+      "font-awesome-4.1.0": {},
+      "select2": {},
+      "select2-bootstrap3-css": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +41,16 @@
         "git": "https://github.com/miguelvalverde/font-awesome-4.1.0.git",
         "tag": "v0.0.1",
         "commit": "2a84395252f4bee953878baa87b7a8bdc172a34c"
+      },
+      "select2": {
+        "git": "https://github.com/nate-strauser/meteor-select2.git",
+        "tag": "v3.4.5",
+        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
+      },
+      "select2-bootstrap3-css": {
+        "git": "https://github.com/esperadomedia/meteor-select2-bootstrap3-css.git",
+        "tag": "v0.0.5",
+        "commit": "ac0c74d4b110c4c5149f17bb33c3e9bb4f77eb88"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
