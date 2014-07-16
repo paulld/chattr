@@ -6,7 +6,9 @@
       "mocha-web": {},
       "less-bootstrap-3": {},
       "spin": {},
-      "moment": {}
+      "moment": {},
+      "select2": {},
+      "select2-bootstrap3-css": {}
     },
     "packages": {
       "iron-router": {
@@ -21,8 +23,8 @@
       },
       "less-bootstrap-3": {
         "git": "https://github.com/DerMambo/less-bootstrap-3.git",
-        "tag": "v0.0.1",
-        "commit": "1321ac0ebc809bc354186b96f4c28b7042e38507"
+        "tag": "v0.0.2",
+        "commit": "b5010b2ff9e9ae6b0e6e13eb0f6c81c9cb84373e"
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
@@ -33,6 +35,16 @@
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.6.0",
         "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      },
+      "select2": {
+        "git": "https://github.com/nate-strauser/meteor-select2.git",
+        "tag": "v3.4.5",
+        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
+      },
+      "select2-bootstrap3-css": {
+        "git": "https://github.com/esperadomedia/meteor-select2-bootstrap3-css.git",
+        "tag": "v0.0.5",
+        "commit": "ac0c74d4b110c4c5149f17bb33c3e9bb4f77eb88"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
