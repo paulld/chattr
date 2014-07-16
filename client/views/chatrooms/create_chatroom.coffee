@@ -12,9 +12,10 @@ Template.createChatroom.events
       # TODO: improve this code: how to convert "true" to true and "false" to false?
 
       roomInfo =
-        name: $(e.target).find('[name=room-name]').val()
+        name:        $(e.target).find('[name=room-name]').val()
         description: $(e.target).find('[name=description]').val()
         roomMembers: $(e.target).find('[name=user-list]').val()
+        tags:        $(e.target).find('[name=tag-list]').val()
         isTemporary: temp
 
       Meteor.call 'addRoom', roomInfo, (error, result) ->
