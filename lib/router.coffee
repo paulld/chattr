@@ -1,6 +1,7 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
+  notFoundTemplate: 'error'
 
 Router.map () ->
 
@@ -8,20 +9,21 @@ Router.map () ->
     path: '/',
     template: 'home',
     waitOn: ->
-      Meteor.subscribe 'myChatrooms', Meteor.user()
+      Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
   # TODO: Reroute index to /chatrooms instead of duplcating
 
   @route 'home',
     path: '/chatrooms'
     waitOn: ->
-      Meteor.subscribe 'myChatrooms', Meteor.user()
+      Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
   @route 'chatroom',
 
     path: '/chatrooms/:_id',
+    notFoundTemplate: 'error'
     waitOn: ->
       [
         Meteor.subscribe 'chatroom', @params._id
@@ -29,10 +31,6 @@ Router.map () ->
         Meteor.subscribe 'users'
       ]
     data: -> Chatrooms.findOne @params._id
-    onBeforeAction: ->
-      room = Chatrooms.findOne @params._id
-      # console.log room
-      if room then console.log room.roomMembers
-      # console.log room.roomMembers
+
 
 Router.onBeforeAction 'loading'

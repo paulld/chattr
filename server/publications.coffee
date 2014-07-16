@@ -1,15 +1,24 @@
 Meteor.publish 'chatrooms', () ->
   Chatrooms.find()
 
-Meteor.publish 'myChatrooms', (user) ->
-  myRooms = user.profile.belongsToRooms
+Meteor.publish 'currentUserChatrooms', () ->
+  currentUser = Meteor.users.findOne
+    _id: this.userId
+
+  currentUserRooms = currentUser.profile.belongsToRooms
+  
   Chatrooms.find
-    _id: { $in: myRooms }
+    _id: { $in: currentUserRooms }
 
 
 Meteor.publish 'chatroom', (id) ->
-  Chatrooms.find
+  out = Chatrooms.find
     _id: id
+  if _.contains(out.fetch()[0].roomMembers, this.userId)
+    out
+  else
+    # THROW ERROR??
+
 
 Meteor.publish 'messages', (chatroomId) ->
   Messages.find
