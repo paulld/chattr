@@ -1,4 +1,4 @@
-<template name="chatroom">
+<template name="chatroomItem">
   <div class="row">
     <div class="col-md-8">
 
@@ -16,18 +16,27 @@
     </div>
 
     <div class="col-md-4">
-      {{#if isOwner}}
-        <div class="well">
-          <input id="delete-room" type="button" class="btn btn-danger" value="Delete the room">
-        </div>
-      {{/if}}
+
       <div class="well">
-        <h2>Tags</h2>
-        <div>
-          {{#each tagsList}}
-          <button class="btn btn-alert">{{this}}</button>
-          {{/each}}
-        </div>
+        {{#if isInvitedMember}}
+          <input id="quit-room" type="button" class="btn btn-warning quit-room" value="Leave this room">
+        {{/if}}
+
+        {{#if isOwner}}
+          <input id="delete-room" type="button" class="btn btn-danger delete-room" value="Delete this room">
+        {{/if}}
+      </div>
+
+      <div class="well">
+        {{#if tagsList}}
+          <h2>Tags</h2>
+          <div>
+            {{#each tagsList}}
+            <button class="btn btn-alert">{{this}}</button>
+            {{/each}}
+          </div>
+        {{/if}}
+
         <h2>Chatroom users</h2>
         <ul class="list-unstyled">
           {{#each members}}

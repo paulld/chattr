@@ -8,20 +8,21 @@ Router.map () ->
     path: '/',
     template: 'home',
     waitOn: ->
-      Meteor.subscribe 'chatrooms'
+      Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
   # TODO: Reroute index to /chatrooms instead of duplcating
 
   @route 'home',
     path: '/chatrooms'
     waitOn: ->
-      Meteor.subscribe 'chatrooms'
+      Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
-  @route 'chatroom',
+  @route 'chatroomItem',
 
     path: '/chatrooms/:_id',
+    notFoundTemplate: 'notFound'
     waitOn: ->
       [
         Meteor.subscribe 'chatroom', @params._id
@@ -29,5 +30,9 @@ Router.map () ->
         Meteor.subscribe 'users'
       ]
     data: -> Chatrooms.findOne @params._id
+    # TODO: throw not_found when receive empty cursor?
+
+  @route 'notFound',
+    path: '*'
 
 Router.onBeforeAction 'loading'

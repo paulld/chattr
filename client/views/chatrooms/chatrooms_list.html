@@ -1,6 +1,6 @@
-<template name="chatroomsList"> <!-- chatrooms -->
+<template name="chatroomsList">
   <div class="well">
-    <h1>Chatrooms</h1>
+    <h1>My Chatrooms</h1>
     <div class="well well-empty">
       <table class="table">
         <thead>
@@ -12,25 +12,27 @@
         </thead>
         <tbody>
           {{#each chatrooms}}
-            <tr class="listed-chatroom">
-              <td class="chatroom-table-temporary">
-                {{#if isTemporary}}
-                  <i class="fa fa-recycle"></i><span class="sr-only">Temporary</span>
-                {{else}}
-                  <i class="fa fa-folder-open"></i><span class="sr-only">Archivable</span>
-                {{/if}}
-              </td>
-              <td class="chatroom-table-name">
-                <a href="{{ pathFor 'chatroom' }}">
-                  {{name}}
-                </a>
-              </td>
-              <td class="chatroom-table-description">
-                <a href="{{ pathFor 'chatroom' }}">
-                  {{description}}
-                </a>
-              </td>
-            </tr>
+            {{#if isMember}}
+              <tr class="listed-chatroom">
+                <td class="chatroom-table-temporary">
+                  {{#if isTemporary}}
+                    <i class="fa fa-recycle"></i><span class="sr-only">Temporary</span>
+                  {{else}}
+                    <i class="fa fa-folder-open"></i><span class="sr-only">Archivable</span>
+                  {{/if}}
+                </td>
+                <td class="chatroom-table-name">
+                  <a href="{{ pathFor 'chatroomItem' }}">
+                    {{name}}
+                  </a>
+                </td>
+                <td class="chatroom-table-description">
+                  <a href="{{ pathFor 'chatroomItem' }}">
+                    {{description}}
+                  </a>
+                </td>
+              </tr>
+            {{/if}}
           {{/each}}
         </tbody>
       </table>

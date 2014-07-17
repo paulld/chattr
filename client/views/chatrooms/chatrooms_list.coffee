@@ -1,2 +1,6 @@
 Template.chatroomsList.helpers
-  chatrooms: -> Chatrooms.find()
+  chatrooms: -> 
+    chatrooms = Chatrooms.find().fetch()
+    for room in chatrooms
+      room.isMember = _.contains(room.roomMembers, Meteor.userId())
+    chatrooms

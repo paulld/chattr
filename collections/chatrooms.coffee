@@ -20,9 +20,6 @@ Meteor.methods
     unless roomAttributes.roomMembers
       throw new Meteor.Error(422, 'Please add at least one person to chat with')
 
-    unless roomAttributes.tags
-      throw new Meteor.Error(422, 'Please add at least one tag')
-
     roomAttributes.roomMembers.push(user._id)
 
     room = _.extend(_.pick(roomAttributes, "name", "description", "createdBy", "roomMembers", "tags", "isTemporary"),
@@ -37,11 +34,20 @@ Meteor.methods
     chatroomId
 
   deleteRoom: (inputs) ->
-    roomId = inputs.roomId
     if Meteor.userId() is inputs.createdBy
       if Chatrooms.remove(inputs.roomId)
         for member in inputs.roomMembers
-          Meteor.users.update({_id:member}, {$pull:{"profile.belongsToRooms":roomId}})
+          Meteor.users.update({_id:member}, {$pull:{"profile.belongsToRooms":inputs.roomId}})
 
     else
       throw new Meteor.Error(401, "You're not the owner of this room")
+
+  quitRoom: (inputs) ->
+    if Meteor.userId() is inputs.createdBy
+      throw new Meteor.Error(401, "You can't leave a room where you are the owner, you can only delete it.")
+    else
+      if _.contains( inputs.roomMembers, Meteor.userId() )
+        Chatrooms.update( {_id:inputs.roomId}, {$pull:{ "roomMembers": Meteor.userId() }} )
+        Meteor.users.update({_id:Meteor.userId()}, {$pull:{"profile.belongsToRooms":inputs.roomId}})
+      else
+        throw new Meteor.Error(401, "You don't belong to this room")
