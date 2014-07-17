@@ -16,10 +16,10 @@
     </div>
 
     <div class="col-md-4">
-      
+
       <div class="well">
         {{#if isInvitedMember}}
-          <input id="quit-room" type="button" class="btn btn-warning quit-room" value="Quit this room">
+          <input id="quit-room" type="button" class="btn btn-warning quit-room" value="Leave this room">
         {{/if}}
 
         {{#if isOwner}}
@@ -36,7 +36,7 @@
             {{/each}}
           </div>
         {{/if}}
-        
+
         <h2>Chatroom users</h2>
         <ul class="list-unstyled">
           {{#each members}}

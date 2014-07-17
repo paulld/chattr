@@ -32,7 +32,7 @@ Template.chatroomItem.helpers
     Meteor.userId() is @createdBy
 
   isInvitedMember: ->
-    false if _.contains( @roomMembers, Meteor.userId() )
+    _.contains( @roomMembers, Meteor.userId() ) and @createdBy != Meteor.userId()
 
   members: ->
     if @roomMembers
