@@ -1,0 +1,33 @@
+<template name="usersList">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="well">
+        <h1>List of Users</h1>
+        <div class="well well-empty">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="sr-only">User Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each this}}
+                <tr class="listed-chatroom">
+                  <td class="chatroom-table-description">
+                    {{profile.name}}
+                  </td>
+                  <td class="chatroom-table-description">
+                    <a href="{{ pathFor 'userItem' }}">
+                      <span class="btn btn-success">View Profile</span>
+                    </a>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

@@ -19,8 +19,8 @@ Router.map () ->
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
-  @route 'chatroomItem',
 
+  @route 'chatroomItem',
     path: '/chatrooms/:_id',
     notFoundTemplate: 'notFound'
     waitOn: ->
@@ -31,6 +31,18 @@ Router.map () ->
       ]
     data: -> Chatrooms.findOne @params._id
     # TODO: throw not_found when receive empty cursor?
+
+
+  @route 'usersList',
+    path: '/users',
+    waitOn: -> Meteor.subscribe 'users'
+    data: -> Meteor.users.find().fetch()
+
+  @route 'userItem', 
+    path: '/users/:_id',
+    waitOn: -> Meteor.subscribe 'user', @params._id
+    data: -> Meteor.users.findOne @params._id
+
 
   @route 'notFound',
     path: '*'

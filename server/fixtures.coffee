@@ -29,7 +29,7 @@ if Chatrooms.find().count() is 0
     description: "room description 3"
     created: now - 3600 * 1000
     isPrivate: true
-    isTemporary: true
+    isTemporary: false
     roomMembers: ["GAKHC3m5CpTfHdgJG", "zKzzxzWW5RZQWfRnm", "XKMr59YMPey8SxPEe"]
 
   Chatrooms.insert
@@ -39,5 +39,5 @@ if Chatrooms.find().count() is 0
     description: "room description 3"
     created: now - 4800 * 1000
     isPrivate: true
-    isTemporary: true
+    isTemporary: false
     roomMembers: ["GAKHC3m5CpTfHdgJG", "zKzzxzWW5RZQWfRnm", "XKMr59YMPey8SxPEe"]

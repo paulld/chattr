@@ -12,8 +12,8 @@ Meteor.publish 'currentUserChatrooms', () ->
     _id: { $in: currentUserRooms }
 
 
-Meteor.publish 'chatroom', (id) ->
-  out = Chatrooms.find( { _id: id } )
+Meteor.publish 'chatroom', (item_id) ->
+  out = Chatrooms.find( { _id: item_id } )
   if out.fetch() is not []
     if _.contains(out.fetch()[0].roomMembers, this.userId)
       out
@@ -29,4 +29,8 @@ Meteor.publish 'messages', (chatroomId) ->
     chatroomId: chatroomId
 
 Meteor.publish 'users', () ->
-  Meteor.users.find( {}, {fields: {'profile.name', 'services.github.username', '_id'}})
+  Meteor.users.find( {},               {fields: {'profile.name', 'services.github.username', 'services.github.email', '_id'}} )
+
+Meteor.publish 'user', (item_id) ->
+  Meteor.users.find( { _id: item_id }, {fields: {'profile.name', 'services.github.username', 'services.github.email', '_id'}} )
+  

@@ -41,7 +41,9 @@
         <ul class="list-unstyled">
           {{#each members}}
             <li>
-              {{profile.name}}
+              <a href="{{ pathFor 'userItem' }}">
+                {{profile.name}}
+              </a>
             </li>
           {{/each}}
         </ul>

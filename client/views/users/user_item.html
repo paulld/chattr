@@ -1,0 +1,22 @@
+<template name="userItem">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="well">
+        <h1>Profile page of {{profile.name}}</h1>
+        <div class="well well-empty">
+          <p>
+            <strong>About me:</strong> (no description yet)
+          </p>
+          <p>
+            <strong>Email address:</strong> 
+            <a href="mailto:{{services.github.email}}">{{services.github.email}}</a>
+          </p>
+          <p>
+            <strong>Github account:</strong> 
+            <a href="https://github.com/{{services.github.username}}">{{services.github.username}}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
