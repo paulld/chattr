@@ -4,12 +4,12 @@ Router.configure
 
 Router.map () ->
 
-  @route 'index',
-    path: '/',
+  @route 'home',
+    path: '/'
 
   @route 'dashboard',
     path: '/chatrooms'
-    template: 'dashboard',
+    template: 'dashboard'
     waitOn: ->
       Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
@@ -17,7 +17,7 @@ Router.map () ->
 
 
   @route 'chatroomItem',
-    path: '/chatrooms/:_id',
+    path: '/chatrooms/:_id'
     notFoundTemplate: 'notFound'
     waitOn: ->
       [
@@ -30,18 +30,19 @@ Router.map () ->
 
 
   @route 'usersList',
-    path: '/users',
+    path: '/users'
     waitOn: -> Meteor.subscribe 'users'
     data: -> Meteor.users.find().fetch()
 
   @route 'userItem', 
-    path: '/users/:_id',
+    path: '/users/:_id'
     waitOn: -> Meteor.subscribe 'user', @params._id
     data: -> Meteor.users.findOne @params._id
 
 
   @route 'notFound',
     path: '*'
+    notFoundTemplate: 'notFound'
 
 requireLogin = (pause) ->
   if (! Meteor.user())
@@ -51,8 +52,5 @@ requireLogin = (pause) ->
       @render('accessDenied')
     pause()
 
-Router.onBeforeAction requireLogin, {except: 'index'}
+Router.onBeforeAction requireLogin, {except: 'home'}
 Router.onBeforeAction 'loading'
-
-
-# Router.onBeforeAction(function() { clearErrors() });
