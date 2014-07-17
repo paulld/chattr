@@ -19,6 +19,9 @@ Router.map () ->
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
+  @route 'usersList',
+    path: '/users'
+
   @route 'chatroomItem',
 
     path: '/chatrooms/:_id',
