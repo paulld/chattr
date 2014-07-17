@@ -11,7 +11,7 @@ Template.chatroomItem.events
         if error
           console.log(error)
         if result
-          Router.go 'home'
+          Router.go 'dashboard'
 
   "click #quit-room": (e) ->
     e.preventDefault()
@@ -24,7 +24,7 @@ Template.chatroomItem.events
         if error
           console.log(error)
         if result
-          Router.go 'home'
+          Router.go 'dashboard'
 
 
 Template.chatroomItem.helpers

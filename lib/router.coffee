@@ -6,14 +6,10 @@ Router.map () ->
 
   @route 'index',
     path: '/',
-    template: 'home',
-    waitOn: ->
-      Meteor.subscribe 'currentUserChatrooms'
-      Meteor.subscribe 'users'
-  # TODO: Reroute index to /chatrooms instead of duplcating
 
-  @route 'home',
+  @route 'dashboard',
     path: '/chatrooms'
+    template: 'dashboard',
     waitOn: ->
       Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
@@ -47,4 +43,16 @@ Router.map () ->
   @route 'notFound',
     path: '*'
 
+requireLogin = (pause) ->
+  if (! Meteor.user())
+    if Meteor.loggingIn()
+      @render('loading')
+    else
+      @render('accessDenied')
+    pause()
+
+Router.onBeforeAction requireLogin, {except: 'index'}
 Router.onBeforeAction 'loading'
+
+
+# Router.onBeforeAction(function() { clearErrors() });
