@@ -11,15 +11,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>User 1</td></tr>
-              <tr><td>User 2</td></tr>
-              <!-- {{#each users}}
+              {{#each users}}
                 <tr class="listed-chatroom">
                   <td class="chatroom-table-description">
                     {{profile.name}}
                   </td>
+                  <td class="chatroom-table-description">
+                    <a href="{{ pathFor 'userItem' }}">
+                      <span class="btn btn-success">View Profile</span>
+                    </a>
+                  </td>
                 </tr>
-              {{/each}} -->
+              {{/each}}
             </tbody>
           </table>
         </div>
