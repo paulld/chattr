@@ -1,11 +1,19 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
+  notFoundTemplate: 'notFound'
 
 Router.map () ->
 
   @route 'home',
     path: '/'
+
+  @route 'privacyPolicy',
+    path: '/privacy-policy'
+
+  @route 'termsOfUse',
+    path: '/terms-of-use'
+
 
   @route 'dashboard',
     path: '/chatrooms'
@@ -15,10 +23,8 @@ Router.map () ->
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
-
   @route 'chatroomItem',
     path: '/chatrooms/:_id'
-    notFoundTemplate: 'notFound'
     waitOn: ->
       [
         Meteor.subscribe 'chatroom', @params._id
@@ -44,6 +50,7 @@ Router.map () ->
     path: '*'
     notFoundTemplate: 'notFound'
 
+
 requireLogin = (pause) ->
   if (! Meteor.user())
     if Meteor.loggingIn()
@@ -52,5 +59,11 @@ requireLogin = (pause) ->
       @render('accessDenied')
     pause()
 
-Router.onBeforeAction requireLogin, {except: 'home'}
+Router.onBeforeAction requireLogin,
+  except: [
+    'home'
+    'privacyPolicy'
+    'termsOfUse'
+    'notFound'
+  ]
 Router.onBeforeAction 'loading'

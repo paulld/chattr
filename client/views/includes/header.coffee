@@ -14,3 +14,6 @@ Template.header.helpers
       Router.current() && Router.current().route.name == name
 
     active && 'active'
+
+  isLoggedIn: ->
+    Meteor.userId()

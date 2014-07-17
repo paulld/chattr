@@ -1,32 +1,13 @@
 <template name="layout">
   <body>
+    
     {{> header}}
+
     <main id="main" class="main container">
       {{> yield}}
     </main>
 
-    <footer>
-      <div class="container">
-        <ul class="list-inline text-muted pull-right">
-          <li>
-            &copy; 2014 by &nbsp;<a href="#">DaVinci</a>
-          </li>
-          <li>
-            &bull;
-          </li>
-          <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li>
-            &bull;
-          </li>
-          <li>
-            <a href="#">Terms of Use</a>
-          </li>  
-        </ul>
-      </div>
-    </footer>
+    {{> footer}}
 
-    <script src="//cdn.jsdelivr.net/select2/3.4.8/select2.js"></script>
   </body>
 </template>
