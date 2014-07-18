@@ -1,5 +1,5 @@
 <template name="header">
-  <header class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <header class="navbar navbar-default navbar-fixed-top" role="banner">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -9,14 +9,18 @@
         </button>
         <a class="navbar-brand" href="{{pathFor 'home'}}">Chattr</a>
       </div>
-      <div class="collapse navbar-collapse">
-        <ul id="header-navlinks" class="nav navbar-nav">
+      <nav class="collapse navbar-collapse" role="navigation">
+        <ul id="header-navlinks" class="nav navbar-nav" role="menubar">
           {{#if isLoggedIn}}
-            <li class="{{activeRouteClass 'dashboard'}}">
-              <a href="{{pathFor 'dashboard'}}">Rooms</a>
+            <li class="{{activeRouteClass 'dashboard'}}" role="presentation">
+              <a href="{{pathFor 'dashboard'}}" role="menuitem">
+                Rooms
+              </a>
             </li>
-            <li class="{{activeRouteClass 'usersList'}}">
-              <a href="{{pathFor 'usersList'}}">Users</a>
+            <li class="{{activeRouteClass 'usersList'}}" role="presentation">
+              <a href="{{pathFor 'usersList'}}" role="menuitem">
+                Users
+              </a>
             </li>
           {{/if}}
         </ul>
@@ -25,7 +29,7 @@
             {{> loginButtons}}
           </div>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 </template>

@@ -1,23 +1,27 @@
 <template name="footer">
-  <footer>
-    <div class="container">
-      <ul class="list-inline text-muted pull-right">
-        <li>
+  <footer role="contentinfo">
+    <nav class="container">
+      <ul class="list-inline text-muted pull-right" role="menubar">
+        <li role="presentation">
           &copy; 2014 by &nbsp;<a href="#">DaVinci</a>
         </li>
-        <li>
+        <li role="presentation">
           &bull;
         </li>
-        <li>
-          <a href="{{pathFor 'privacyPolicy'}}">Privacy Policy</a>
+        <li role="presentation">
+          <a href="{{pathFor 'privacyPolicy'}}" role="menuitem">
+            Privacy Policy
+          </a>
         </li>
-        <li>
+        <li role="presentation">
           &bull;
         </li>
-        <li>
-          <a href="{{pathFor 'termsOfUse'}}">Terms of Use</a>
+        <li role="presentation">
+          <a href="{{pathFor 'termsOfUse'}}" role="menuitem">
+            Terms of Use
+          </a>
         </li>  
       </ul>
-    </div>
+    </nav>
   </footer>
 </template>
