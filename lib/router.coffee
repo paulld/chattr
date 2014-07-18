@@ -1,28 +1,30 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
+  notFoundTemplate: 'notFound'
 
 Router.map () ->
 
-  @route 'index',
-    path: '/',
-    template: 'home',
-    waitOn: ->
-      Meteor.subscribe 'currentUserChatrooms'
-      Meteor.subscribe 'users'
-  # TODO: Reroute index to /chatrooms instead of duplcating
-
   @route 'home',
+    path: '/'
+
+  @route 'privacyPolicy',
+    path: '/privacy-policy'
+
+  @route 'termsOfUse',
+    path: '/terms-of-use'
+
+
+  @route 'dashboard',
     path: '/chatrooms'
+    template: 'dashboard'
     waitOn: ->
       Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
 
-
   @route 'chatroomItem',
-    path: '/chatrooms/:_id',
-    notFoundTemplate: 'notFound'
+    path: '/chatrooms/:_id'
     waitOn: ->
       [
         Meteor.subscribe 'chatroom', @params._id
@@ -34,17 +36,34 @@ Router.map () ->
 
 
   @route 'usersList',
-    path: '/users',
+    path: '/users'
     waitOn: -> Meteor.subscribe 'users'
     data: -> Meteor.users.find().fetch()
 
   @route 'userItem', 
-    path: '/users/:_id',
+    path: '/users/:_id'
     waitOn: -> Meteor.subscribe 'user', @params._id
     data: -> Meteor.users.findOne @params._id
 
 
   @route 'notFound',
     path: '*'
+    notFoundTemplate: 'notFound'
 
+
+requireLogin = (pause) ->
+  if (! Meteor.user())
+    if Meteor.loggingIn()
+      @render('loading')
+    else
+      @render('accessDenied')
+    pause()
+
+Router.onBeforeAction requireLogin,
+  except: [
+    'home'
+    'privacyPolicy'
+    'termsOfUse'
+    'notFound'
+  ]
 Router.onBeforeAction 'loading'

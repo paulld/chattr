@@ -11,12 +11,14 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul id="header-navlinks" class="nav navbar-nav">
-          <li class="{{activeRouteClass 'home'}}">
-            <a href="{{pathFor 'home'}}">Rooms</a>
-          </li>
-          <li class="{{activeRouteClass 'usersList'}}">
-            <a href="{{pathFor 'usersList'}}">Users</a>
-          </li>
+          {{#if isLoggedIn}}
+            <li class="{{activeRouteClass 'dashboard'}}">
+              <a href="{{pathFor 'dashboard'}}">Rooms</a>
+            </li>
+            <li class="{{activeRouteClass 'usersList'}}">
+              <a href="{{pathFor 'usersList'}}">Users</a>
+            </li>
+          {{/if}}
         </ul>
         <div class="nav navbar-nav navbar-right">
           <div class="login-buttons">
