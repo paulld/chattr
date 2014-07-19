@@ -1,58 +1,46 @@
 @import 'variables'
 
-html {
-  min-height: 100%;
-  position: relative;
-}
+html
+  min-height 100%
+  position relative
 
-body {
-  margin-bottom: 60px;
-}
+body
+  margin-bottom 60px
 
-.navbar.navbar-default {
-  /*background-color: hsla(198.4, 60%, 60%, 1);*/
-  /*color: #fff;*/
-}
-.navbar.navbar-default a, .navbar.navbar-default .navbar-nav > li > a {
-  /*color: #fff;*/
-}
+.navbar.navbar-default
+  background-color menu_background_color
+  color menu_button_color
 
-footer {
-  position: absolute;
-  background-color: hsla( 0, 0.0%, 95%, 1 );
-  /*background-color: hsla(198.4, 60%, 60%, 1);*/
-  bottom: 0;
-  height: 60px;
-  width: 100%;
-}
-footer a {
-  /*color: #fff;*/
-}
+.navbar.navbar-default a, .navbar.navbar-default .navbar-nav > li > a
+  color menu_button_color
 
+footer
+  position absolute
+  background-color menu_background_color
+  bottom 0
+  height 60px
+  width 100%
 
-body > .container {
-  padding: 80px 15px 70px;
-}
+footer a
+  color menu_link_color
 
-.container .text-muted {
-  margin: 20px 0;
-  /*color: hsla(0,30%,80%,1);*/
-}
+body > .container
+  padding 80px 15px 70px
 
-footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
+.container .text-muted
+  margin 20px 0
+  color menu_text_muted
 
-.login-buttons {
-  margin-top: 12px;
-}
+footer > .container
+  padding-right 15px
+  padding-left 15px
 
-@media (max-width: 768px) {
-  .login-buttons-dropdown-align- {
-    margin-left: 15px;
-  }
-  .login-buttons {
-    margin-top: 0px;
-  }
-}
+.login-buttons
+  margin-top 12px
+
+@media (max-width: 768px)
+  .login-buttons-dropdown-align-
+    margin-left 15px
+  
+  .login-buttons
+    margin-top 0px  
