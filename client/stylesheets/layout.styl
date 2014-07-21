@@ -1,0 +1,46 @@
+@import 'variables'
+
+html
+  min-height 100%
+  position relative
+
+body
+  margin-bottom 60px
+
+.navbar.navbar-default
+  background-color menu_background_color
+  color menu_button_color
+
+.navbar.navbar-default a, .navbar.navbar-default .navbar-nav > li > a
+  color menu_button_color
+
+footer
+  position absolute
+  background-color menu_background_color
+  bottom 0
+  height 60px
+  width 100%
+
+footer a
+  color menu_link_color
+
+body > .container
+  padding 80px 15px 70px
+
+.container .text-muted
+  margin 20px 0
+  color menu_text_muted
+
+footer > .container
+  padding-right 15px
+  padding-left 15px
+
+.login-buttons
+  margin-top 12px
+
+@media (max-width: 768px)
+  .login-buttons-dropdown-align-
+    margin-left 15px
+  
+  .login-buttons
+    margin-top 0px  
