@@ -3,10 +3,18 @@ if Meteor.users.find().count() is 0
     _id: "rdHcNRTny7Y5ZZckX"
     profile:
       name: "Cranky Old Man"
+      belongsToRooms: [
+        "Qvs4QQxJEzYaROOM1"
+        "Qvs4QQxJEzYaROOM2"
+        "Qvs4QQxJEzYaROOM3"
+        "Qvs4QQxJEzYaROOM4"
+        "Qvs4QQxJEzYaROOM5"
+        "Qvs4QQxJEzYaROOM6"
+      ]
     services:
       github:
         id: 7147135
-        accessToken: "c79090e86822952cb7bd52deae5db24bc66b8160"
+        accessToken: "4945ecad115f1b858078c395483f77f369fc355c"
         email: "coolman@gnail.com"
         username: "victorleungtw"
 
@@ -25,12 +33,6 @@ if Meteor.users.find().count() is 0
     _id: "zKzzxzWW5RZQWfRnm"
     profile:
       name: "Creator Yim"
-      belongsToRooms: [
-        "Qvs4QQxJEzYa9NWM1"
-        "Qvs4QQxJEzYa9NWM2"
-        "Qvs4QQxJEzYa9NWM3"
-        "Qvs4QQxJEzYa9NWM4"
-      ]
     services:
       github:
         id: 3065452
@@ -43,10 +45,11 @@ if Meteor.users.find().count() is 0
     profile:
       name: "Paul"
       belongsToRooms: [
-        "Qvs4QQxJEzYa9NWM1"
-        "Qvs4QQxJEzYa9NWM2"
-        "Qvs4QQxJEzYa9NWM3"
-        "Qvs4QQxJEzYa9NWM4"
+        "Qvs4QQxJEzYaROOM1"
+        "Qvs4QQxJEzYaROOM2"
+        "Qvs4QQxJEzYaROOM3"
+        "Qvs4QQxJEzYaROOM4"
+        "Qvs4QQxJEzYaROOM5"
       ]
     services:
       github:
@@ -59,10 +62,11 @@ if Meteor.users.find().count() is 0
     _id: "XKMr59YMPey8SxPEe"
     profile:
       belongsToRooms: [
-        "Qvs4QQxJEzYa9NWM1"
-        "Qvs4QQxJEzYa9NWM2"
-        "Qvs4QQxJEzYa9NWM3"
-        "Qvs4QQxJEzYa9NWM4"
+        "Qvs4QQxJEzYaROOM1"
+        "Qvs4QQxJEzYaROOM2"
+        "Qvs4QQxJEzYaROOM3"
+        "Qvs4QQxJEzYaROOM4"
+        "Qvs4QQxJEzYaROOM6"
       ]
       name: "annieccheung"
     services:

@@ -18,7 +18,7 @@ Router.map () ->
   @route 'dashboard',
     path: '/chatrooms'
     template: 'dashboard'
-    waitOn: ->
+    onData: ->
       Meteor.subscribe 'currentUserChatrooms'
       Meteor.subscribe 'users'
     data: -> Chatrooms.find()
@@ -37,7 +37,7 @@ Router.map () ->
 
   @route 'usersList',
     path: '/users'
-    waitOn: -> Meteor.subscribe 'users'
+    onData: -> Meteor.subscribe 'users'
     data: -> Meteor.users.find().fetch()
 
   @route 'userItem', 
